@@ -364,8 +364,12 @@ var box = document.getElementById('box');
 
 var i = Math.round(Math.random() * list.length, 0);
 box.innerHTML = list[i].setup + '<br><br>' + list[i].joke;
-
+var last_i = i;
 document.body.addEventListener('click', function() {
-    i = Math.round(Math.random() * list.length, 0);
+    do{
+        i = Math.round(Math.random() * list.length, 0);
+    }while(i == last_i)
+    last_i = i;
     box.innerHTML = list[i].setup + '<br><br>' + list[i].joke;
 });
+
